@@ -65,7 +65,7 @@ export default function RoomCatalog({ onSelectRoom }) {
 
                 <div>
                   {/* Room Image Container */}
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
+                  <div className="relative aspect-4/3 w-full overflow-hidden bg-slate-100">
                     <img
                       src={
                         imgErrors[room.id]
@@ -76,7 +76,7 @@ export default function RoomCatalog({ onSelectRoom }) {
                       alt={room.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/10 to-transparent" />
 
                     {/* Room Badge */}
                     <div className="absolute top-3 left-3">
@@ -160,7 +160,7 @@ export default function RoomCatalog({ onSelectRoom }) {
                       <ul className="space-y-1.5 text-xs text-slate-700">
                         {room.facilities.slice(0, 3).map((item, idx) => (
                           <li key={idx} className="flex items-center gap-2">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
+                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                             <span className="truncate">{item}</span>
                           </li>
                         ))}

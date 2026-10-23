@@ -28,7 +28,7 @@ export default function App() {
       <Navbar />
 
       {/* Main Content Area */}
-      <main className="flex-grow">
+      <main className="grow">
         {/* 1. Hero Section */}
         <Hero />
 

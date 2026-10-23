@@ -96,14 +96,14 @@ export default function RoomModal({ room, isOpen, onClose }) {
         {/* Scrollable Modal Content */}
         <div className="overflow-y-auto p-6 sm:p-8 space-y-6">
           {/* Photo Showcase Carousel */}
-          <div className="relative rounded-2xl overflow-hidden bg-slate-900 aspect-[16/10] sm:aspect-[16/9] shadow-inner group">
+          <div className="relative rounded-2xl overflow-hidden bg-slate-900 aspect-16/10 sm:aspect-video shadow-inner group">
             <img
               src={imgError ? currentPhoto.fallback : currentPhoto.url}
               onError={() => setImgError(true)}
               alt={currentPhoto.title || room.name}
               className="w-full h-full object-cover transition-all duration-300"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20" />
+            <div className="absolute inset-0 bg-linear-to-t from-slate-950/70 via-transparent to-black/20" />
 
             {/* Gallery Navigation Arrows (if multiple photos) */}
             {currentGallery.length > 1 && (
@@ -151,7 +151,7 @@ export default function RoomModal({ room, isOpen, onClose }) {
                     setActivePhotoIndex(idx);
                     setImgError(false);
                   }}
-                  className={`relative flex-shrink-0 w-20 h-14 rounded-lg overflow-hidden border-2 transition-all ${
+                  className={`relative shrink-0 w-20 h-14 rounded-lg overflow-hidden border-2 transition-all ${
                     activePhotoIndex === idx
                       ? "border-emerald-600 ring-2 ring-emerald-500/30 scale-105"
                       : "border-transparent opacity-70 hover:opacity-100"
@@ -231,7 +231,7 @@ export default function RoomModal({ room, isOpen, onClose }) {
           {/* Important Highlight Notice: Kamar Mandi Sharing & All-In */}
           <div className="p-4 rounded-2xl bg-emerald-50/80 border border-emerald-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
             <div className="flex items-start gap-3">
-              <div className="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center flex-shrink-0 mt-0.5">
+              <div className="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0 mt-0.5">
                 <Bath className="w-5 h-5" />
               </div>
               <div>
@@ -261,7 +261,7 @@ export default function RoomModal({ room, isOpen, onClose }) {
                   key={idx}
                   className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-700 bg-slate-50 px-3 py-2 rounded-xl border border-slate-200/60"
                 >
-                  <CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
                   <span>{fac}</span>
                 </div>
               ))}

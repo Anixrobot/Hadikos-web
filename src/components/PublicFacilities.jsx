@@ -7,7 +7,7 @@ import {
   Bike,
   Utensils,
   SunMedium,
-  CheckCircle,
+  CheckCircle2,
   Building2,
 } from "lucide-react";
 
@@ -21,19 +21,19 @@ export default function PublicFacilities() {
   const getFacilityIcon = (id) => {
     switch (id) {
       case "ruang-tv":
-        return <Tv className="w-5 h-5 text-white" />;
+        return <Tv className="w-4 h-4 text-emerald-700" />;
       case "balkon-rooftop":
-        return <Coffee className="w-5 h-5 text-white" />;
+        return <Coffee className="w-4 h-4 text-emerald-700" />;
       case "kamar-mandi-sharing":
-        return <Bath className="w-5 h-5 text-white" />;
+        return <Bath className="w-4 h-4 text-emerald-700" />;
       case "parkir-indoor":
-        return <Bike className="w-5 h-5 text-white" />;
+        return <Bike className="w-4 h-4 text-emerald-700" />;
       case "dapur-bersama":
-        return <Utensils className="w-5 h-5 text-white" />;
+        return <Utensils className="w-4 h-4 text-emerald-700" />;
       case "cuci-jemur":
-        return <SunMedium className="w-5 h-5 text-white" />;
+        return <SunMedium className="w-4 h-4 text-emerald-700" />;
       default:
-        return <Building2 className="w-5 h-5 text-white" />;
+        return <Building2 className="w-4 h-4 text-emerald-700" />;
     }
   };
 
@@ -56,7 +56,7 @@ export default function PublicFacilities() {
           </p>
         </div>
 
-        {/* Bento Grid Layout */}
+        {/* Bento Grid Layout with Clear Separated Photos & Text */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {PUBLIC_FACILITIES.map((facility) => {
             const isWide = facility.colSpan.includes("md:col-span-2");
@@ -64,12 +64,16 @@ export default function PublicFacilities() {
             return (
               <div
                 key={facility.id}
-                className={`relative rounded-3xl overflow-hidden border border-slate-200/90 shadow-sm bg-white flex flex-col justify-between group hover:shadow-xl hover:border-emerald-500/40 transition-all duration-300 ${
+                className={`bg-white rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col justify-between group hover:shadow-xl hover:border-emerald-500/40 transition-all duration-300 ${
                   facility.colSpan
-                } ${isWide ? "min-h-[380px]" : "min-h-[340px]"}`}
+                }`}
               >
-                {/* Background Image with Gradient Overlay */}
-                <div className="absolute inset-0 z-0">
+                {/* 1. Image Section: 100% Clear, Natural & Unobstructed */}
+                <div
+                  className={`relative w-full overflow-hidden bg-slate-100 ${
+                    isWide ? "h-64 sm:h-72" : "h-52 sm:h-56"
+                  }`}
+                >
                   <img
                     src={
                       imgErrors[facility.id]
@@ -78,39 +82,41 @@ export default function PublicFacilities() {
                     }
                     onError={() => handleImgError(facility.id)}
                     alt={facility.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                   />
-                  {/* Subtle dark gradient overlay so text is 100% readable */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-900/30" />
-                </div>
 
-                {/* Top Badge & Icon */}
-                <div className="relative z-10 p-6 flex items-start justify-between">
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase bg-emerald-600/90 text-white backdrop-blur-md shadow-xs">
-                    {facility.badge}
-                  </span>
-                  <div className="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 shadow-xs">
+                  {/* Top-Left Badge */}
+                  <div className="absolute top-3.5 left-3.5">
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase bg-white/95 text-emerald-800 backdrop-blur-md shadow-sm border border-emerald-100">
+                      {facility.badge}
+                    </span>
+                  </div>
+
+                  {/* Top-Right Icon Pill */}
+                  <div className="absolute top-3.5 right-3.5 w-9 h-9 rounded-xl bg-white/95 backdrop-blur-md flex items-center justify-center border border-slate-200/80 shadow-sm">
                     {getFacilityIcon(facility.id)}
                   </div>
                 </div>
 
-                {/* Bottom Content Area */}
-                <div className="relative z-10 p-6 pt-0 space-y-3">
-                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug">
-                    {facility.title}
-                  </h3>
-                  <p className="text-sm text-slate-200 leading-relaxed max-w-xl">
-                    {facility.description}
-                  </p>
+                {/* 2. Content Section: Clean, Readable Text on Pure White */}
+                <div className="p-5 sm:p-6 flex flex-col justify-between grow space-y-4">
+                  <div>
+                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-emerald-700 transition-colors leading-snug">
+                      {facility.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mt-2">
+                      {facility.description}
+                    </p>
+                  </div>
 
-                  {/* Feature checklist chips */}
-                  <div className="flex flex-wrap gap-2 pt-2">
+                  {/* Feature Checklist Chips */}
+                  <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-100">
                     {facility.features.map((feature, idx) => (
                       <span
                         key={idx}
-                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold bg-white/15 text-white backdrop-blur-xs border border-white/20"
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-50 text-slate-700 border border-slate-200/70"
                       >
-                        <CheckCircle className="w-3.5 h-3.5 text-emerald-400" />
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                         <span>{feature}</span>
                       </span>
                     ))}

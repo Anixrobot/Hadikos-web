@@ -105,23 +105,23 @@ export default function Footer() {
               </h4>
               <ul className="space-y-2 text-xs sm:text-sm text-slate-400">
                 <li className="flex items-center gap-2">
-                  <Zap className="w-3.5 h-3.5 text-emerald-500 flex-shrink-0" />
+                  <Zap className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
                   <span>Gratis Listrik, Air & WiFi Cepat</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <Train className="w-3.5 h-3.5 text-emerald-500 flex-shrink-0" />
+                  <Train className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
                   <span>3-5 Menit ke Stasiun LRT</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
                   <span>Kamar Mandi Sharing Bersih (Rasio 1:3)</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
                   <span>Ruang TV & Balkon Santai</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
                   <span>Garasi Motor Indoor Beratap</span>
                 </li>
               </ul>
@@ -134,11 +134,11 @@ export default function Footer() {
               </h4>
               <div className="space-y-2 text-xs sm:text-sm text-slate-400">
                 <div className="flex items-start gap-2">
-                  <MapPin className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
+                  <MapPin className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                   <span>{HADIKOS_CONFIG.address}</span>
                 </div>
                 <div className="flex items-center gap-2 text-white font-semibold">
-                  <MessageCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                  <MessageCircle className="w-4 h-4 text-emerald-400 shrink-0" />
                   <span>WhatsApp: {HADIKOS_CONFIG.phoneDisplay}</span>
                 </div>
               </div>

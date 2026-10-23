@@ -54,7 +54,7 @@ export default function LocationLRT() {
                   key={index}
                   className="p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-emerald-400 hover:bg-emerald-50/20 transition-all duration-200 flex items-start gap-4"
                 >
-                  <div className="w-11 h-11 rounded-xl bg-white border border-slate-200 flex items-center justify-center flex-shrink-0 shadow-xs">
+                  <div className="w-11 h-11 rounded-xl bg-white border border-slate-200 flex items-center justify-center shrink-0 shadow-xs">
                     {getLocationIcon(point.icon)}
                   </div>
                   <div className="flex-1">
@@ -62,7 +62,7 @@ export default function LocationLRT() {
                       <h3 className="text-base font-bold text-slate-900">
                         {point.title}
                       </h3>
-                      <span className="text-[11px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md flex-shrink-0">
+                      <span className="text-[11px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md shrink-0">
                         {point.highlight}
                       </span>
                     </div>
@@ -77,7 +77,7 @@ export default function LocationLRT() {
             {/* Address Banner & Maps Button */}
             <div className="p-5 rounded-2xl bg-emerald-50/70 border border-emerald-200 space-y-3">
               <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                <MapPin className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                 <div>
                   <h4 className="text-sm font-bold text-slate-900">
                     Alamat Properti HADIKOS
@@ -101,7 +101,7 @@ export default function LocationLRT() {
 
           {/* Right Column: Embedded Map with Floating LRT Travel Card */}
           <div className="lg:col-span-6 relative">
-            <div className="relative rounded-3xl overflow-hidden border-2 border-slate-200 shadow-xl bg-slate-100 h-[400px] sm:h-[460px]">
+            <div className="relative rounded-3xl overflow-hidden border-2 border-slate-200 shadow-xl bg-slate-100 h-100 sm:h-115">
               {/* Iframe Google Maps */}
               <iframe
                 title="Peta Lokasi Hadikos"
@@ -118,7 +118,7 @@ export default function LocationLRT() {
               {/* Floating LRT Card Overlay */}
               <div className="absolute top-4 left-4 right-4 sm:right-auto sm:max-w-xs bg-white/95 backdrop-blur-md p-4 rounded-2xl border border-slate-200 shadow-xl">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center flex-shrink-0 shadow-sm">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-sm">
                     <Train className="w-5 h-5" />
                   </div>
                   <div>
