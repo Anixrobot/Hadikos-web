@@ -10,6 +10,15 @@ import {
 } from "lucide-react";
 
 export default function LocationLRT() {
+  const getEmbedUrl = (rawUrl) => {
+    if (!rawUrl) return "";
+    if (rawUrl.includes("<iframe")) {
+      const match = rawUrl.match(/src=["']([^"']+)["']/);
+      return match ? match[1] : rawUrl;
+    }
+    return rawUrl;
+  };
+
   const getLocationIcon = (iconName) => {
     switch (iconName) {
       case "Train":
@@ -105,14 +114,14 @@ export default function LocationLRT() {
               {/* Iframe Google Maps */}
               <iframe
                 title="Peta Lokasi Hadikos"
-                src={HADIKOS_CONFIG.mapsEmbedUrl}
+                src={getEmbedUrl(HADIKOS_CONFIG.mapsEmbedUrl)}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="w-full h-full filter saturate-[1.1]"
+                className="w-full h-full"
               />
 
               {/* Floating LRT Card Overlay */}
